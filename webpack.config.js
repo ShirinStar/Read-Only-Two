@@ -9,7 +9,7 @@ const env = process.env.NODE_ENV || 'development';
 
 const config = {
     entry: [
-        "@babel/polyfill", path.resolve(__dirname, 'src', 'main.js')
+        "@babel/polyfill", path.resolve(__dirname, 'src', 'content.js')
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -83,14 +83,14 @@ const config = {
                 collapseWhitespace: true,
                 removeAttributeQuotes: true,
             }
-        }),
-        new MiniCssExtractPlugin({
-            filename: (env === 'development') ? '[name].css' : '[name].[hash].css',
-            chunkFilename: (env === 'development') ? '[id].css' : '[id].[hash].css',
-        }),
-        new CopyWebpackPlugin([
-            { from: path.resolve(__dirname, 'src', 'assets', 'images', 'favicon.png'), to: './favicon.png' }
-        ])
+        })
+        // new MiniCssExtractPlugin({
+        //     filename: (env === 'development') ? '[name].css' : '[name].[hash].css',
+        //     chunkFilename: (env === 'development') ? '[id].css' : '[id].[hash].css',
+        // })
+        // new CopyWebpackPlugin([
+        //     { from: path.resolve(__dirname, 'src', 'assets', 'images', 'favicon.png'), to: './favicon.png' }
+        // ])
     ],
     resolve: {
         extensions: ['.js', '.json'],
